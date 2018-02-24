@@ -1,0 +1,47 @@
+<resources>
+    <!--label-->
+    <string name="app_name">Store Management</string>
+    <string name="all">All</string>
+    <string name="main_label">Main Page</string>
+    <!--Splash-->
+    <string name="splash_ver">Ver 1.0</string>
+
+    <!--Login-->
+    <string name="login_title">Login</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_btn_text">Sign In</string>
+
+    <string name="login_failed">Sign in failed. Please try again!</string>
+    <string name="login_email_null">Email field can not be empty</string>
+    <string name="login_password_null">Password field can not be empty</string>
+
+    <!--Main-->
+    <string name="main_load_title">Loading Data</string>
+
+    <!--Main.Navigation-->
+    <string name="main_nav_main_page">Main Page</string>
+    <string name="main_nav_sell">Create PayBill</string>
+    <string name="main_nav_import">Import</string>
+    <string name="main_nav_staff_manage">Staff Management</string>
+    <string name="main_nav_statistical">Store Statistics</string>\
+    <string name="main_nav_logout">Sign out</string>
+
+    <!--Main.User-->
+    <string name="main_user_time_title">Login Time:</string>
+
+    <!--Main.Header-->
+    <string name="main_header_user">User Info:</string>
+    <string name="main_header_manager_content">Session Staffs:</string>
+    <string name="main_header_staff_content">Storage:</string>
+
+    <!--Main.Staff-->
+    <string name="main_staff_type_search">Type:\u0020</string>
+    <string name="main_staff_category_search">Category:\u0020</string>
+    <string name="main_staff_search_all">All</string>
+    <string name="main_staff_search">Search</string>
+
+    <!--Main.Staff.ProductItem-->
+    <string name="main_staff_cost">Cost: %d</string>
+    <string name="main_staff_amount">Amount: %d</string>
+</resources>

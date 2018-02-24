@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_paybill"
+        android:icon="@drawable/ic_paybill"
+        android:title="@string/main_nav_sell"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/nav_import"
+        android:icon="@drawable/ic_import"
+        android:title="@string/main_nav_import" />
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/main_nav_logout" />
+</menu>

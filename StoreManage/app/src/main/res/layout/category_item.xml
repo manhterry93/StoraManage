@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spin_title"
+    android:layout_width="@dimen/main_staff_category_item_width"
+    android:layout_height="@dimen/main_staff_category_item_height"
+    android:background="@color/colorGrey"
+    android:padding="3dp">
+</TextView>

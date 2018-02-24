@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_staff_manage"
+        android:icon="@drawable/ic_staff_manage"
+        android:title="@string/main_nav_staff_manage" />
+    <item
+        android:id="@+id/nav_statistic"
+        android:icon="@drawable/ic_staff_manage"
+        android:title="@string/main_nav_statistical" />
+    <item
+        android:icon="@drawable/ic_logout"
+        android:id="@+id/nav_logout"
+        android:title="@string/main_nav_logout" />
+</menu>

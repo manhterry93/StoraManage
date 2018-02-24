@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Default Color-->
+    <!--<color name="colorPrimary">#4C6A92</color>-->
+    <!--<color name="colorPrimaryDark">#425E8</color>-->
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#2a2a2a</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorGrey">#333333</color>
+    <!--Splash-->
+    <color name="splash_title_color">@color/colorWhite</color>
+    <color name="splash_ver_color">@color/colorWhite</color>
+    <color name="splash_progress_tint_color">@color/colorWhite</color>
+    <color name="splash_load_text_color">@color/colorWhite</color>
+
+    <!--Login-->
+    <color name="login_edit_field_text_color">@color/colorGrey</color>
+    <color name="login_btn_text_color">@color/colorGrey</color>
+</resources>
