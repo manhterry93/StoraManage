@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name="bkhn.et.storemanage.MainApp"
@@ -29,7 +30,11 @@
             android:theme="@style/AppTheme.Login" />
         <activity
             android:name="bkhn.et.storemanage.ui.main.view.MainActivity"
-            android:label="@string/main_label"></activity>
+            android:label="@string/main_label" />
+        <activity android:name="bkhn.et.storemanage.ui.bill.view.BillActivity" />
+        <activity
+            android:name="bkhn.et.storemanage.ui.scan.view.ScannerActivity"
+            android:label="@string/scanner_label"></activity>
     </application>
 
 </manifest>

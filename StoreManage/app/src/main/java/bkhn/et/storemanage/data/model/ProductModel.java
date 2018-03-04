@@ -29,11 +29,11 @@ public class ProductModel {
         mModelInfo = modelInfo;
     }
 
-    public String getProductId() {
+    public String getModelId() {
         return mModelInfo.getId();
     }
 
-    public void setProductId(String productId) {
+    public void setModelId(String productId) {
         mModelInfo.setId(productId);
     }
 
@@ -71,6 +71,14 @@ public class ProductModel {
 
     public int getProductCount() {
         return mProductList.size();
+    }
+
+    public void addProduct(String productId) {
+        mProductList.add(productId);
+    }
+
+    public ModelInfo getModelInfo() {
+        return mModelInfo;
     }
 
     public static class ModelInfo {

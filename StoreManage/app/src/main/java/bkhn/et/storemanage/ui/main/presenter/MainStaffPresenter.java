@@ -85,11 +85,11 @@ public class MainStaffPresenter<V extends IMainStaffView> extends RxPresenter<V>
         public void onDataChange(DataSnapshot dataSnapshot) {
             UserDetailModel model = dataSnapshot.getValue(UserDetailModel.class);
             if (isNotNull(model) && isNotNull(mView)) {
+                model.setUserId(userId);
                 mView.updateUserDetail(model);
                 Log.d(TAG, "onDataChange: " + model.toString());
             } else
                 Log.e(TAG, "Data null");
-
 
         }
 
@@ -139,11 +139,11 @@ public class MainStaffPresenter<V extends IMainStaffView> extends RxPresenter<V>
     }
 
     class ProductListListener implements ValueEventListener {
-
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
             Log.d(TAG, "onDataChange: " + dataSnapshot.toString());
             if (isNotNull(dataSnapshot)) {
+                Log.d(TAG, "data size: " + dataSnapshot.getChildrenCount());
                 List<ProductModel> result = new ArrayList<>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     result.add(convertProductData(child));
@@ -174,7 +174,12 @@ public class MainStaffPresenter<V extends IMainStaffView> extends RxPresenter<V>
             ProductModel model = new ProductModel(modelInfo);
             GenericTypeIndicator<List<String>> t = new GenericTypeIndicator<List<String>>() {
             };
-            List<String> productList = dataSnapshot.child("List").getValue(t);
+            List<String> productList = new ArrayList<>();
+            for (DataSnapshot data : dataSnapshot.child("List").getChildren())
+//                dataSnapshot.child("List").getValue(t);
+                productList.add((String) data.getValue());
+
+
             if (isNotNull(productList))
                 model.setProductList(productList);
             return model;

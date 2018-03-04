@@ -5,6 +5,8 @@ import android.content.Context;
 import bkhn.et.storemanage.base.BaseActivity;
 import bkhn.et.storemanage.base.BaseFragment;
 import bkhn.et.storemanage.di.ActivityContext;
+import bkhn.et.storemanage.ui.bill.IBillContract;
+import bkhn.et.storemanage.ui.bill.presenter.BillPresenter;
 import bkhn.et.storemanage.ui.login.ILoginContract.ILoginPresenter;
 import bkhn.et.storemanage.ui.login.ILoginContract.ILoginView;
 import bkhn.et.storemanage.ui.login.presenter.LoginPresenter;
@@ -65,6 +67,11 @@ public class FragmentModule {
 
     @Provides
     IMainManagerPresenter<IMainManagerView> provideMainManagerPresenter(MainManagerPresenter<IMainManagerView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IBillContract.IBillPresenter<IBillContract.IBillView> provideBillPresenter(BillPresenter<IBillContract.IBillView> presenter) {
         return presenter;
     }
 }

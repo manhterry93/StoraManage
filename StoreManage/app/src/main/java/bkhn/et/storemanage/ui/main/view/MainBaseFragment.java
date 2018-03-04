@@ -47,7 +47,7 @@ public abstract class MainBaseFragment extends BaseFragment {
     @BindView(R.id.main_user_avatar)
     ImageView mUserAvatar;
     @BindView(R.id.main_user_name)
-    TextView mUserName;
+    TextView mUserNameTxt;
     @BindView(R.id.main_user_position)
     TextView mUserPosition;
     @BindView(R.id.main_user_phone)
@@ -62,6 +62,7 @@ public abstract class MainBaseFragment extends BaseFragment {
     TextView mContentHeaderTitle;
 
     protected String mUserId = null;
+    protected String mUserName = null;
     BaseActivity mActivity;
     protected ProgressDialog mProgressDialog;
     protected boolean mUserLoad = false;

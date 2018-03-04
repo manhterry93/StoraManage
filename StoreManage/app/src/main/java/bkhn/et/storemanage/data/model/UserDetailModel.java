@@ -5,12 +5,21 @@ package bkhn.et.storemanage.data.model;
  */
 
 public class UserDetailModel {
+    String userId;
     String email;
     String name;
     String position;
     long positionId;
     String profileImage;
     String phone;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getEmail() {
         return email;

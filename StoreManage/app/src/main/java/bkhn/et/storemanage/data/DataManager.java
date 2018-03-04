@@ -7,9 +7,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.storemanage.data.model.ProductModel;
 import bkhn.et.storemanage.data.remote.IRemoteProvider;
 
 import static bkhn.et.storemanage.util.AppConstant.TAGG;
@@ -51,7 +54,7 @@ public class DataManager implements IDataManager {
     @Override
     public void getUserPosition(String userId, ValueEventListener listener) {
         if (isNotNull(mRemoteProvider)) {
-           mRemoteProvider.getUserPosition(userId,listener);
+            mRemoteProvider.getUserPosition(userId, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }
@@ -60,7 +63,7 @@ public class DataManager implements IDataManager {
     @Override
     public void getUserDetail(String userId, ValueEventListener listener) {
         if (isNotNull(mRemoteProvider)) {
-            mRemoteProvider.getUserDetail(userId,listener);
+            mRemoteProvider.getUserDetail(userId, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }
@@ -87,7 +90,7 @@ public class DataManager implements IDataManager {
     @Override
     public void getProductList(long type, ValueEventListener listener) {
         if (isNotNull(mRemoteProvider)) {
-            mRemoteProvider.getProductList(type,listener);
+            mRemoteProvider.getProductList(type, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }
@@ -97,6 +100,51 @@ public class DataManager implements IDataManager {
     public void logout() {
         if (isNotNull(mRemoteProvider)) {
             mRemoteProvider.logout();
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void getModelInfo(String model, ValueEventListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.getModelInfo(model, listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void createPayBill(List<ProductModel> dataList, String userID, String userName,OnCompleteListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.createPayBill(dataList, userID, userName,listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void createImportBill(List<ProductModel> dataList, String userID, String userName, OnCompleteListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.createImportBill(dataList, userID, userName,listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void deleteProducts(List<ProductModel> dataList, OnCompleteListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.deleteProducts(dataList, listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void addProducts(List<ProductModel> dataList, OnCompleteListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.addProducts(dataList, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }

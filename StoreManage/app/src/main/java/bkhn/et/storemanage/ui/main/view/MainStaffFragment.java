@@ -10,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,9 +33,11 @@ import bkhn.et.storemanage.data.model.ProductModel;
 import bkhn.et.storemanage.data.model.ProductType;
 import bkhn.et.storemanage.data.model.UserDetailModel;
 import bkhn.et.storemanage.di.ActivityContext;
+import bkhn.et.storemanage.ui.bill.view.BillActivity;
 import bkhn.et.storemanage.ui.login.view.LoginActivity;
 import bkhn.et.storemanage.ui.main.IMainContract.IMainStaffPresenter;
 import bkhn.et.storemanage.ui.main.IMainContract.IMainStaffView;
+import bkhn.et.storemanage.util.AppConstant;
 import bkhn.et.storemanage.util.UiUtils;
 import bkhn.et.storemanege.R;
 import butterknife.BindView;
@@ -121,6 +124,13 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
 
     @Override
     public void openPayBillActivity() {
+        if (isNotNull(mUserId) && isNotNull(mUserName)) {
+            Intent intent = new Intent(mActivity, BillActivity.class);
+            intent.putExtra(AppConstant.Bill.EXTRA_BILL_MODE, AppConstant.Bill.BILL_PAY);
+            intent.putExtra(AppConstant.Bill.EXTRA_USER_ID, mUserId);
+            intent.putExtra(AppConstant.Bill.EXTRA_USER_NAME, mUserName);
+            startActivity(intent);
+        }
 
     }
 
@@ -168,7 +178,9 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
 
     @Override
     public void openImportBillActivity() {
-
+        Intent intent = new Intent(mActivity, BillActivity.class);
+        intent.putExtra(AppConstant.Bill.EXTRA_BILL_MODE, AppConstant.Bill.BILL_IMPORT);
+        startActivity(intent);
     }
 
     @Override
@@ -182,7 +194,8 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
         mHeaderUserPosition.setText(model.getPosition());
 
         //Content
-        mUserName.setText(model.getName());
+        mUserName = model.getName();
+        mUserNameTxt.setText(model.getName());
         mUserPosition.setText(model.getPosition());
         UiUtils.loadImageLink(mContext, model.getProfileImage(), mUserAvatar, R.drawable.ic_avatar_default, true);
         mUserPhone.setText(model.getPhone());
@@ -232,6 +245,7 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Log.d(TAG, "onNavigationItemSelected: " + item.getItemId());
+            mDrawerLayout.closeDrawer(Gravity.LEFT);
             switch (item.getItemId()) {
                 case R.id.nav_paybill:
                     openPayBillActivity();

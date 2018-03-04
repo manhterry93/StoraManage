@@ -2,9 +2,11 @@ package bkhn.et.storemanage.di.component;
 
 import bkhn.et.storemanage.di.PerActivity;
 import bkhn.et.storemanage.di.module.FragmentModule;
+import bkhn.et.storemanage.ui.bill.view.BillFragment;
 import bkhn.et.storemanage.ui.login.view.LoginFragment;
 import bkhn.et.storemanage.ui.main.view.MainManagerFragment;
 import bkhn.et.storemanage.ui.main.view.MainStaffFragment;
+import bkhn.et.storemanage.ui.scan.view.ScannerFragment;
 import bkhn.et.storemanage.ui.splash.view.SplashFragment;
 import dagger.Component;
 
@@ -21,4 +23,8 @@ public interface FragmentComponent {
     void inject(MainStaffFragment fragment);
 
     void inject(MainManagerFragment fragment);
+
+    void inject(BillFragment fragment);
+
+    void inject(ScannerFragment fragment);
 }

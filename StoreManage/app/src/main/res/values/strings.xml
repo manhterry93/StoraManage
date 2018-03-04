@@ -44,4 +44,20 @@
     <!--Main.Staff.ProductItem-->
     <string name="main_staff_cost">Cost: %d</string>
     <string name="main_staff_amount">Amount: %d</string>
+
+    <!--Bill-->
+    <string name="bill_pay">Pay Bill</string>
+    <string name="bill_import">Import Bill</string>
+    <string name="bill_action_done">Done</string>
+    <string name="bill_scan_title">Press on the above icon to scan</string>
+    <string name="bill_detail_title">Bill Detail:</string>
+    <string name="bill_detail_name">Product</string>
+    <string name="bill_detail_cost">Cost</string>
+    <string name="bill_detail_count">Quantity</string>
+    <string name="bill_pay_done">PayBill created!</string>
+    <string name="bill_import_done">ImportBill created!</string>
+    <!--Scanner-->
+    <string name="scanner_label">Product Qr Scanner</string>
+    <string name="scanner_not_valid_content">Not a valid Product Code</string>
+
 </resources>
