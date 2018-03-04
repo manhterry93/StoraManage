@@ -59,6 +59,7 @@ public class BillPresenter<V extends IBillContract.IBillView> extends RxPresente
                 });
             }
         });
+
     }
 
     @Override

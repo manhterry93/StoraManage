@@ -60,4 +60,39 @@
     <string name="scanner_label">Product Qr Scanner</string>
     <string name="scanner_not_valid_content">Not a valid Product Code</string>
 
+    <!--StaffItem-->
+    <string name="staff_action_call">Call</string>
+    <string name="staff_action_sms">SMS</string>
+
+    <!--StaffManage-->
+    <string name="staff_search_hint">Search by Id, Name</string>
+    <string name="staff_manage_label">Staff Management</string>
+
+    <!--StaffInfo-->
+    <string name="staff_info_title">Staff Info</string>
+    <string name="staff_position">Position:\u0020</string>
+    <string name="staff_name">User name:\u0020</string>
+    <string name="staff_phone">Phone number:\u0020</string>
+    <string name="staff_session">Session time:\u0020</string>
+    <string name="staff_email">Email:\u0020</string>
+    <string name="staff_action_mail">Send mail</string>
+    <string name="staff_session_time">%s - %s</string>
+    <string name="staff_user_not_valid">UserId is not valid!</string>
+
+    <!--ReportManage-->
+    <string name="report_manage_header_type">Type</string>
+    <string name="report_manage_header_time">Create time</string>
+    <string name="report_manager_header_staff">Staff</string>
+
+    <!--ReportInfo-->
+    <string name="report_overview_header">Report Overview:</string>
+    <string name="report_detail_header">Report Detail:</string>
+    <string name="report_overview_time">Time:</string>
+    <string name="report_overview_user">Staff:</string>
+    <string name="report_overview_type">Bill type:</string>
+    <string name="report_overview_total_cost">Total cost:</string>
+    <string name="report_overview_pay_bill">Pay Bill</string>
+    <string name="report_overview_import_bill">Import Bill</string>
+    <string name="report_invalid">Invalid Report</string>
+    <string name="report_info_label">Report %s</string>
 </resources>

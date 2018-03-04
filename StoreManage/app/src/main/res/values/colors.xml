@@ -17,4 +17,17 @@
     <!--Login-->
     <color name="login_edit_field_text_color">@color/colorGrey</color>
     <color name="login_btn_text_color">@color/colorGrey</color>
+
+    <!--StaffItem-->
+    <color name="staff_action_call_color">#4C6A92</color>
+    <color name="staff_action_sms_color">#CC9999</color>
+
+    <!--StaffManage-->
+    <color name="staff_search_color_hint">#EEEEEE</color>
+    <color name="staff_search_color">#ffffff</color>
+
+    <!--StaffInfo-->
+    <color name="staff_info_content_color">@color/colorWhite</color>
+    <color name="staff_info_title_color">#D6D6D6</color>
+    <color name="staff_info_email_color">#BB492B</color>
 </resources>

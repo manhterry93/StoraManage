@@ -85,7 +85,7 @@ public class MainStaffPresenter<V extends IMainStaffView> extends RxPresenter<V>
         public void onDataChange(DataSnapshot dataSnapshot) {
             UserDetailModel model = dataSnapshot.getValue(UserDetailModel.class);
             if (isNotNull(model) && isNotNull(mView)) {
-                model.setUserId(userId);
+//                model.setUserId(userId);
                 mView.updateUserDetail(model);
                 Log.d(TAG, "onDataChange: " + model.toString());
             } else

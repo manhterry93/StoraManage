@@ -12,8 +12,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.storemanage.base.UserCallback;
 import bkhn.et.storemanage.data.model.ProductModel;
 import bkhn.et.storemanage.data.remote.IRemoteProvider;
+import bkhn.et.storemanage.ui.main.presenter.MainManagerPresenter;
 
 import static bkhn.et.storemanage.util.AppConstant.TAGG;
 import static bkhn.et.storemanage.util.AppUtils.isNotNull;
@@ -115,9 +117,9 @@ public class DataManager implements IDataManager {
     }
 
     @Override
-    public void createPayBill(List<ProductModel> dataList, String userID, String userName,OnCompleteListener listener) {
+    public void createPayBill(List<ProductModel> dataList, String userID, String userName, OnCompleteListener listener) {
         if (isNotNull(mRemoteProvider)) {
-            mRemoteProvider.createPayBill(dataList, userID, userName,listener);
+            mRemoteProvider.createPayBill(dataList, userID, userName, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }
@@ -126,7 +128,7 @@ public class DataManager implements IDataManager {
     @Override
     public void createImportBill(List<ProductModel> dataList, String userID, String userName, OnCompleteListener listener) {
         if (isNotNull(mRemoteProvider)) {
-            mRemoteProvider.createImportBill(dataList, userID, userName,listener);
+            mRemoteProvider.createImportBill(dataList, userID, userName, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }
@@ -145,6 +147,42 @@ public class DataManager implements IDataManager {
     public void addProducts(List<ProductModel> dataList, OnCompleteListener listener) {
         if (isNotNull(mRemoteProvider)) {
             mRemoteProvider.addProducts(dataList, listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void getCurrentStaffs(UserCallback callback) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.getCurrentStaffs(callback);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void getAllStaffs(UserCallback callback) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.getAllStaffs(callback);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void getAllReports(ValueEventListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.getAllReports(listener);
+        } else {
+            Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
+        }
+    }
+
+    @Override
+    public void getReportInfo(String reportId, ValueEventListener listener) {
+        if (isNotNull(mRemoteProvider)) {
+            mRemoteProvider.getReportInfo(reportId, listener);
         } else {
             Log.e(TAG, "getRemoteCurrentUser failed:\n" + "RemoteProvider is not initialized");
         }

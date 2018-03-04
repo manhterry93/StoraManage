@@ -35,6 +35,8 @@ public interface IMainContract {
     }
 
     interface IMainManagerView extends IBaseView {
+        void updateUserDetail(@NonNull UserDetailModel model);
+
         void openStaffManageActivity();
 
         void openStatisticActivity();
@@ -42,6 +44,12 @@ public interface IMainContract {
         void requestLogout();
 
         void openLoginActivity();
+
+        void callStaff(String number);
+
+        void sendSmsStaff(String number);
+
+        void updateListCurrentStaffs(List<UserDetailModel> list);
 
     }
 
@@ -60,7 +68,11 @@ public interface IMainContract {
     }
 
     interface IMainManagerPresenter<V extends IMainManagerView> extends IBasePresenter<V> {
-        void loadData();
+        void loadData(String userId);
+
+        void loadCurrentStaffs();
+
+        void loadUserDetail(String userId);
 
         void logout();
     }

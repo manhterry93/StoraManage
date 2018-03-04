@@ -16,9 +16,19 @@ import bkhn.et.storemanage.ui.main.IMainContract.IMainManagerView;
 import bkhn.et.storemanage.ui.main.IMainContract.IMainStaffView;
 import bkhn.et.storemanage.ui.main.presenter.MainManagerPresenter;
 import bkhn.et.storemanage.ui.main.presenter.MainStaffPresenter;
+import bkhn.et.storemanage.ui.reportinfo.IReportInfoContract;
+import bkhn.et.storemanage.ui.reportinfo.presenter.ReportInfoPresenter;
+import bkhn.et.storemanage.ui.reportmanage.IReportContract;
+import bkhn.et.storemanage.ui.reportmanage.presenter.ReportPresenter;
 import bkhn.et.storemanage.ui.splash.ISplashContract.ISplashPresenter;
 import bkhn.et.storemanage.ui.splash.ISplashContract.ISplashView;
 import bkhn.et.storemanage.ui.splash.presenter.SplashPresenter;
+import bkhn.et.storemanage.ui.staffinfo.IStaffInfoContract;
+import bkhn.et.storemanage.ui.staffinfo.presenter.StaffInfoPresenter;
+import bkhn.et.storemanage.ui.staffmanage.IStaffManageContract;
+import bkhn.et.storemanage.ui.staffmanage.IStaffManageContract.IStaffManagePresenter;
+import bkhn.et.storemanage.ui.staffmanage.IStaffManageContract.IStaffManageView;
+import bkhn.et.storemanage.ui.staffmanage.presenter.StaffManagePresenter;
 import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
@@ -72,6 +82,26 @@ public class FragmentModule {
 
     @Provides
     IBillContract.IBillPresenter<IBillContract.IBillView> provideBillPresenter(BillPresenter<IBillContract.IBillView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IStaffManagePresenter<IStaffManageView> providesStaffManagePresenter(StaffManagePresenter<IStaffManageView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IStaffInfoContract.IStaffInfoPresenter<IStaffInfoContract.IStaffInfoView> provideStaffInfoPresenter(StaffInfoPresenter<IStaffInfoContract.IStaffInfoView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IReportContract.IReportPresenter<IReportContract.IReportView> provideReportPresenter(ReportPresenter<IReportContract.IReportView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    IReportInfoContract.IReportInfoPresenter<IReportInfoContract.IReportInfoView> provideReportInfoPresenter(ReportInfoPresenter<IReportInfoContract.IReportInfoView> presenter) {
         return presenter;
     }
 }

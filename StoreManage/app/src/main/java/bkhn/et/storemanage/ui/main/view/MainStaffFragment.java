@@ -76,11 +76,6 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
     boolean mTypeLoaded = false;
     ContentAdapter mContentAdapter;
 
-    @NonNull
-    @Override
-    protected int getLayoutId() {
-        return R.layout.frag_main;
-    }
 
     @Override
     protected void initInjection() {
@@ -98,14 +93,14 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
     protected void setup() {
         super.setup();
         mPresenter.onAttach(this);
-        mProgressDialog = new ProgressDialog(mContext) {
-            @Override
-            public void onBackPressed() {
-                super.onBackPressed();
-            }
-        };
+//        mProgressDialog = new ProgressDialog(mContext) {
+//            @Override
+//            public void onBackPressed() {
+//                super.onBackPressed();
+//            }
+//        };
         mProductTypes = new ArrayList<>();
-        mProgressDialog.setCancelable(true);
+//        mProgressDialog.setCancelable(true);
         mContentAdapter = new ContentAdapter();
     }
 
@@ -178,16 +173,21 @@ public class MainStaffFragment extends MainBaseFragment implements IMainStaffVie
 
     @Override
     public void openImportBillActivity() {
-        Intent intent = new Intent(mActivity, BillActivity.class);
-        intent.putExtra(AppConstant.Bill.EXTRA_BILL_MODE, AppConstant.Bill.BILL_IMPORT);
-        startActivity(intent);
+        if (isNotNull(mUserId) && isNotNull(mUserName)) {
+            Intent intent = new Intent(mActivity, BillActivity.class);
+            intent.putExtra(AppConstant.Bill.EXTRA_BILL_MODE, AppConstant.Bill.BILL_IMPORT);
+            intent.putExtra(AppConstant.Bill.EXTRA_USER_ID, mUserId);
+            intent.putExtra(AppConstant.Bill.EXTRA_USER_NAME, mUserName);
+            startActivity(intent);
+        }
+
     }
 
     @Override
     public void updateUserDetail(@NonNull UserDetailModel model) {
         mUserLoad = true;
-        if (isAllLoaded())
-            mProgressDialog.hide();
+//        if (isAllLoaded())
+//            mProgressDialog.hide();
         //Header
         mHeaderUserName.setText(model.getName());
         UiUtils.loadImageLink(mContext, model.getProfileImage(), mHeaderUserAvatar, R.drawable.ic_avatar_default, true);

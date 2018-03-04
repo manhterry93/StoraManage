@@ -34,7 +34,13 @@
         <activity android:name="bkhn.et.storemanage.ui.bill.view.BillActivity" />
         <activity
             android:name="bkhn.et.storemanage.ui.scan.view.ScannerActivity"
-            android:label="@string/scanner_label"></activity>
+            android:label="@string/scanner_label" />
+        <activity
+            android:name="bkhn.et.storemanage.ui.staffmanage.view.StaffManageActivity"
+            android:label="@string/staff_manage_label" />
+        <activity android:name="bkhn.et.storemanage.ui.staffinfo.view.StaffInfoActivity" />
+        <activity android:name="bkhn.et.storemanage.ui.reportmanage.view.ReportActivity" />
+        <activity android:name="bkhn.et.storemanage.ui.reportinfo.view.ReportInfoActivity"></activity>
     </application>
 
 </manifest>

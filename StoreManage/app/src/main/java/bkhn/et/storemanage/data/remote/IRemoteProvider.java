@@ -8,8 +8,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
+import bkhn.et.storemanage.base.UserCallback;
 import bkhn.et.storemanage.data.model.ProductModel;
-import bkhn.et.storemanage.data.model.UserDetailModel;
 
 /**
  * Created by PL_itto on 2/12/2018.
@@ -24,13 +24,14 @@ public interface IRemoteProvider {
 
     void getUserDetail(String userId, ValueEventListener listener);
 
+    void logout();
+
+    // Staff
     void getCategory(ValueEventListener listener);
 
     void getProductType(ValueEventListener listener);
 
     void getProductList(long type, ValueEventListener listener);
-
-    void logout();
 
     void getModelInfo(String model, ValueEventListener listener);
 
@@ -40,5 +41,15 @@ public interface IRemoteProvider {
 
     void deleteProducts(List<ProductModel> dataList, OnCompleteListener listener);
 
-    void addProducts(List<ProductModel> dataList,OnCompleteListener listener);
+    void addProducts(List<ProductModel> dataList, OnCompleteListener listener);
+
+    // Manager
+    void getCurrentStaffs(UserCallback callback);
+
+    void getAllStaffs(UserCallback callback);
+
+    void getAllReports(ValueEventListener listener);
+
+    void getReportInfo(String reportId,ValueEventListener listener);
+
 }

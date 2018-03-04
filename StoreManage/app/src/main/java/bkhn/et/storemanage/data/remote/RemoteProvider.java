@@ -13,18 +13,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import bkhn.et.storemanage.base.UserCallback;
 import bkhn.et.storemanage.data.model.ProductModel;
 import bkhn.et.storemanage.data.model.UserDetailModel;
 import bkhn.et.storemanage.di.ApplicationContext;
+import bkhn.et.storemanage.ui.main.presenter.MainManagerPresenter;
 import bkhn.et.storemanage.util.AppConstant;
+import bkhn.et.storemanage.util.AppUtils;
 
 import static bkhn.et.storemanage.util.AppConstant.TAGG;
+import static bkhn.et.storemanage.util.AppUtils.isNotNull;
 
 /**
  * Created by PL_itto on 2/12/2018.
@@ -131,7 +137,7 @@ public class RemoteProvider implements IRemoteProvider {
 
     @Override
     public void createImportBill(List<ProductModel> dataList, String userID, String userName, OnCompleteListener listener) {
-        Log.d(TAG, "createImportBill: ");
+        Log.d(TAG, "createImportBill: "+userID+" "+userName);
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         String reportLabel = database.getReference("Report/").push().getKey();
         DatabaseReference reportRef = database.getReference("Report/" + reportLabel);
@@ -192,4 +198,83 @@ public class RemoteProvider implements IRemoteProvider {
                 modelRef.child("List").push().setValue(productId);
         }
     }
+
+    @Override
+    public void getCurrentStaffs(@NonNull final UserCallback callback) {
+        Log.d(TAG, "getCurrentStaffs: ");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final Date currentTime = Calendar.getInstance().getTime();
+        DatabaseReference userRef = database.getReference("Users");
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!isNotNull(dataSnapshot))
+                    return;
+                Log.d(TAG, "data size: " + dataSnapshot.getChildrenCount());
+                List<UserDetailModel> models = new ArrayList<>();
+                for (DataSnapshot user : dataSnapshot.getChildren()) {
+                    UserDetailModel userModel = user.getValue(UserDetailModel.class);
+                    Log.i(TAG, "UserPos: " + userModel.getPositionId());
+                    if (userModel.getPositionId() != AppConstant.UserMode.USER_MANAGER) {
+                        double startTime = userModel.getStartTime();
+                        double endTime = userModel.getEndTime();
+                        if (AppUtils.isValidSession(startTime, endTime, currentTime)) {
+                            models.add(userModel);
+                        }
+                    }
+                }
+                if (models.size() > 0)
+                    callback.onResult(models);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getAllStaffs(final UserCallback callback) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference userRef = database.getReference("Users");
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!isNotNull(dataSnapshot))
+                    return;
+                Log.d(TAG, "data size: " + dataSnapshot.getChildrenCount());
+                List<UserDetailModel> models = new ArrayList<>();
+                for (DataSnapshot user : dataSnapshot.getChildren()) {
+                    UserDetailModel userModel = user.getValue(UserDetailModel.class);
+                    Log.i(TAG, "UserPos: " + userModel.getPositionId());
+                    if (userModel.getPositionId() != AppConstant.UserMode.USER_MANAGER) {
+                        models.add(userModel);
+                    }
+                }
+                if (models.size() > 0)
+                    callback.onResult(models);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    @Override
+    public void getAllReports(ValueEventListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reportRef = database.getReference("Report");
+        reportRef.addListenerForSingleValueEvent(listener);
+
+    }
+
+    @Override
+    public void getReportInfo(String reportId, ValueEventListener listener) {
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reportRef = database.getReference("Report/"+reportId);
+        reportRef.addListenerForSingleValueEvent(listener);
+    }
+
 }

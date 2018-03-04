@@ -8,7 +8,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/nav_import"
-        android:icon="@drawable/ic_import"
+        android:icon="@drawable/ic_nav_import"
         android:title="@string/main_nav_import" />
     <item
         android:id="@+id/nav_logout"

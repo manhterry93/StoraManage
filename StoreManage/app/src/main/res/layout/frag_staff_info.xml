@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        android:elevation="5dp"
+        android:theme="@style/AppTheme.Toolbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:background="@color/colorGrey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="20dp">
+
+            <ImageView
+                android:id="@+id/staff_info_avatar"
+                android:layout_width="@dimen/staff_info_avatar_size"
+                android:layout_height="@dimen/staff_info_avatar_size"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/ic_avatar_default" />
+            <!--Position-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/staff_info_content_height"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_position"
+                    android:textColor="@color/staff_info_title_color"
+                    android:textSize="@dimen/staff_info_title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/staff_info_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/staff_info_content_color"
+                    android:textSize="@dimen/staff_info_content_text_size"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_line" />
+            <!--Name-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/staff_info_content_height"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_name"
+                    android:textColor="@color/staff_info_title_color"
+                    android:textSize="@dimen/staff_info_title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/staff_info_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/staff_info_content_color"
+                    android:textSize="@dimen/staff_info_content_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_line" />
+
+            <!--Phone-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/staff_info_content_height"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_phone"
+                    android:textColor="@color/staff_info_title_color"
+                    android:textSize="@dimen/staff_info_title_text_size"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/staff_info_action_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/staff_info_action_call"
+                            android:layout_width="@dimen/staff_quick_action_width"
+                            android:layout_height="@dimen/staff_quick_action_height"
+                            android:background="@drawable/user_call_shape"
+                            android:gravity="center"
+                            android:text="@string/staff_action_call"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/staff_quick_action_text_size"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/staff_info_action_sms"
+                            android:layout_width="@dimen/staff_quick_action_width"
+                            android:layout_height="@dimen/staff_quick_action_height"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/user_sms_shape"
+                            android:gravity="center"
+                            android:text="@string/staff_action_sms"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/staff_quick_action_text_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/staff_info_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/staff_info_action_layout"
+                        android:textColor="@color/staff_info_content_color"
+                        android:textSize="@dimen/staff_info_title_text_size"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_line" />
+
+            <!--Email-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/staff_info_content_height"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_email"
+                    android:textColor="@color/staff_info_title_color"
+                    android:textSize="@dimen/staff_info_title_text_size"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/staff_info_action_mail_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/staff_info_action_mail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/staff_quick_action_height"
+                            android:background="@drawable/user_mail_shape"
+
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="@string/staff_action_mail"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/staff_quick_action_text_size"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/staff_info_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@id/staff_info_action_mail_layout"
+                        android:textColor="@color/staff_info_content_color"
+                        android:textSize="@dimen/staff_info_content_text_size"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <include layout="@layout/horizontal_line" />
+
+            <!--Session-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/staff_info_content_height"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/staff_session"
+                    android:textColor="@color/staff_info_title_color"
+                    android:textSize="@dimen/staff_info_title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/staff_info_session"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/staff_info_content_color"
+                    android:textSize="@dimen/staff_info_content_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

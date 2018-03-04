@@ -12,7 +12,8 @@ public class UserDetailModel {
     long positionId;
     String profileImage;
     String phone;
-
+    double startTime;
+    double endTime;
     public String getUserId() {
         return userId;
     }
@@ -67,6 +68,22 @@ public class UserDetailModel {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public double getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(double startTime) {
+        this.startTime = startTime;
+    }
+
+    public double getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(double endTime) {
+        this.endTime = endTime;
     }
 
     @Override

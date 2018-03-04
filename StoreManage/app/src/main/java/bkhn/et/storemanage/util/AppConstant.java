@@ -35,4 +35,12 @@ public class AppConstant {
     public static final class Scanner {
         public static final String CODE_RESULT = "code_result";
     }
+
+    public static final class StaffInfo{
+        public static final String EXTRA_USER_ID ="extra_user_id";
+    }
+
+    public static final class ReportInfo{
+        public static final String EXTRA_REPORT_ID ="extra_report_id";
+    }
 }

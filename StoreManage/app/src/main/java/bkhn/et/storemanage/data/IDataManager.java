@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
+import bkhn.et.storemanage.base.UserCallback;
 import bkhn.et.storemanage.data.model.ProductModel;
 
 /**
@@ -40,4 +41,12 @@ public interface IDataManager {
     void deleteProducts(List<ProductModel> dataList, OnCompleteListener listener);
 
     void addProducts(List<ProductModel> dataList,OnCompleteListener listener);
+
+    void getCurrentStaffs(UserCallback callback);
+
+    void getAllStaffs(UserCallback callback);
+
+    void getAllReports(ValueEventListener listener);
+
+    void getReportInfo(String reportId,ValueEventListener listener);
 }
